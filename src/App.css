@@ -1,0 +1,10 @@
+#home::before,
+#about::before,
+#service::before,
+#work::before,
+#blog::before,
+#contact::before {
+	height: 54px;
+	content: "";
+	display: block;
+}
