@@ -49,7 +49,7 @@ const About = ({ isComponentVisible, scrollPosition }) => {
 										</div>
 										<div className="skill-mf">
 											<p className="title-s">Skill</p>
-											<span>Project Managment</span> <span className="pull-right">(KanBan)</span>
+											<span>Project Managment</span> <span className="pull-right">(Jira, Trello)</span>
 											<div className="progress">
 												<div
 													className="progress-bar"
@@ -60,7 +60,7 @@ const About = ({ isComponentVisible, scrollPosition }) => {
 													aria-valuemax="100"
 												></div>
 											</div>
-											<span>Front End</span> <span className="pull-right">(React + Redux)</span>
+											<span>Front End</span> <span className="pull-right">(React, Next.js)</span>
 											<div className="progress">
 												<div
 													className="progress-bar"
@@ -82,7 +82,7 @@ const About = ({ isComponentVisible, scrollPosition }) => {
 													aria-valuemax="100"
 												></div>
 											</div>
-											<span>Quality Assurance (QA)</span> <span className="pull-right">(Postman, Jest)</span>
+											<span>Quality Assurance (QA)</span> <span className="pull-right">(Jest)</span>
 											<div className="progress">
 												<div
 													className="progress-bar"
@@ -93,7 +93,7 @@ const About = ({ isComponentVisible, scrollPosition }) => {
 													aria-valuemax="100"
 												></div>
 											</div>
-											<span>DevOps</span> <span className="pull-right">(Heroku)</span>
+											<span>DevOps</span> <span className="pull-right">(Docker, Kubernetes, AWS)</span>
 											<div className="progress">
 												<div
 													className="progress-bar"
@@ -117,7 +117,7 @@ const About = ({ isComponentVisible, scrollPosition }) => {
 											</p>
 											<p className="lead">
 												Interested in learning and getting hands-on experience working with cutting edge
-												technology such as: TypeScript, React Native, Flutter, Go, Scala.
+												technology such as: TypeScript, React Native, Flutter, Go.
 											</p>
 											<p className="lead">
 												Interested in writing stories about JavaScript. Writer of JavaScript in Plain
