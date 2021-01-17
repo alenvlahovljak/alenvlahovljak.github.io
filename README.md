@@ -1,10 +1,20 @@
 # Personal Website
 
+## Local
+
 ### Start
 1. `yarn start` ( hosts app at 3000 )
 
 ### Build
 1. `yarn build` ( hosts app at 5000 )
+
+## Dockerize App
+
+### Start
+1. `yarn docker:run` ( hosts app at 4000 )
+
+### Build
+1. `yarn docker:build` ( build/rebuild app )
 
 ### Coding guides
 1. Branch from **develop**, name your new branch feature or ticket name related. Upon finishing the feature create MR to develop.

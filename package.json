@@ -30,6 +30,8 @@
 		"start": "react-scripts start",
 		"dev": "./node_modules/.bin/env-cmd -f ./.env yarn start",
 		"build": "CI= react-scripts build",
+		"docker:build": "docker-compose build",
+		"docker:run": "docker-compose up",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
