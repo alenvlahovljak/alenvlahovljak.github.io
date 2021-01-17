@@ -7,32 +7,35 @@ import VisibilitySensor from "react-visibility-sensor";
 import background from "../../public/images/overlay-bg.jpg";
 
 const Contact = ({ isComponentVisible }) => {
+	const { REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID } = process.env;
+
+	const [reCaptcha, setReCaptcha] = useState('');
 	const [disabled, setDisabled] = useState(false);
 	const [success, setSuccess] = useState("");
 	const [error, setError] = useState('');
 
 	function verifyCaptcha(value) {
-		console.log("Captcha value:", value)
+		setReCaptcha(value);
 	}
 
 	const handleSubmit = async(e)=>{
-		const { REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID } = process.env;
-
 		e.preventDefault();
-		setDisabled(true);
 
-		emailjs.sendForm(REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, e.target, REACT_APP_USER_ID)
-			.then((result)=>{
-			if(result.status === 200) {
-				setDisabled(false);
-				setSuccess("Your message has been sent. Thank you!");
-			}
-		}).catch((err)=> {
-			if(err.status !== 200){
-				console.log('err', err)
-				setError("Unable to send message. Try again later!");
-			}
-		});
+		if(reCaptcha) {
+			setDisabled(true);
+			emailjs.sendForm(REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, e.target, REACT_APP_USER_ID)
+				.then((result)=>{
+					if(result.status === 200) {
+						setDisabled(false);
+						setSuccess("Your message has been sent. Thank you!");
+					}
+				}).catch((err)=> {
+				if(err.status !== 200){
+					console.log('err', err)
+					setError("Unable to send message. Try again later!");
+				}
+			});
+		}
 	}
 
 	return (
@@ -123,7 +126,7 @@ const Contact = ({ isComponentVisible }) => {
 															</div>
 														</div>
 														<div className="col-md-12 text-center mb-3">
-															{disabled && success &&
+															{disabled && !success &&
 															<div className="spinner-border text-primary" role="status">
 																<span className="sr-only">Loading...</span>
 															</div>}
