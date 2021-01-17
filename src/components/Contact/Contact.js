@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import emailjs from "emailjs-com";
+import { useForm } from "react-hook-form";
 import ReCAPTCHA from "react-google-recaptcha"
 
 import VisibilitySensor from "react-visibility-sensor";
@@ -8,6 +9,8 @@ import background from "../../public/images/overlay-bg.jpg";
 
 const Contact = ({ isComponentVisible }) => {
 	const { REACT_APP_SERVICE_ID, REACT_APP_TEMPLATE_ID, REACT_APP_USER_ID } = process.env;
+
+	const { register, setValue } = useForm();
 
 	const [reCaptcha, setReCaptcha] = useState('');
 	const [disabled, setDisabled] = useState(false);
@@ -28,6 +31,11 @@ const Contact = ({ isComponentVisible }) => {
 					if(result.status === 200) {
 						setDisabled(false);
 						setSuccess("Your message has been sent. Thank you!");
+						setReCaptcha('');
+						setValue('name', '');
+						setValue('email', '');
+						setValue('subject', '');
+						setValue('message', '');
 					}
 				}).catch((err)=> {
 				if(err.status !== 200){
@@ -65,6 +73,7 @@ const Contact = ({ isComponentVisible }) => {
 														<div className="col-md-12 mb-3">
 															<div className="form-group">
 																<input
+																	ref={register}
 																	required
 																	disabled={disabled}
 																	type="text"
@@ -81,6 +90,7 @@ const Contact = ({ isComponentVisible }) => {
 														<div className="col-md-12 mb-3">
 															<div className="form-group">
 																<input
+																	ref={register}
 																	required
 																	disabled={disabled}
 																	type="email"
@@ -97,6 +107,7 @@ const Contact = ({ isComponentVisible }) => {
 														<div className="col-md-12 mb-3">
 															<div className="form-group">
 																<input
+																	ref={register}
 																	required
 																	disabled={disabled}
 																	type="text"
@@ -113,6 +124,7 @@ const Contact = ({ isComponentVisible }) => {
 														<div className="col-md-12">
 															<div className="form-group">
 																<textarea
+																	ref={register}
 																	required
 																	disabled={disabled}
 																	className="form-control"
