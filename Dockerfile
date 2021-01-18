@@ -12,8 +12,8 @@ COPY package.json /app
 COPY yarn.lock /app
 
 # Install app dependencies
-RUN yarn
-RUN yarn global add react-scripts@3.4.1
+RUN yarn --silent
+RUN yarn global add react-scripts@3.4.1 --silent
 
 # Bundle app
 COPY . /app
