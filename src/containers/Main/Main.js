@@ -17,7 +17,7 @@ const Main = ({ isComponentVisible }) => {
 			<Portfolio isComponentVisible={isComponentVisible} />
 			<Testimonials isComponentVisible={isComponentVisible} />
 			<Blogs isComponentVisible={isComponentVisible} />
-			<Contact isComponentVisible={isComponentVisible} />
+			{/*<Contact isComponentVisible={isComponentVisible} />*/}
 		</main>
 	);
 };
